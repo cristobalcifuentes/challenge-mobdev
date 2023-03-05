@@ -40,6 +40,12 @@ public class CharacterServiceImpl implements ICharacterService {
 		return characterDto;
 	}
 	
+	
+	/**
+	 * obtiene el id de location ubicado tras el ultimo slash de la url contenida en el objeto CharacterDto 
+	 * @param characterDto objeto que incluye la url con el id de location
+	 * @return un string con el id de location
+	 */
 	private String extractIdFromcharacterDto(CharacterDto characterDto) {
 		String url = characterDto.getOrigin().getUrl();
 		String idLocation   = url.substring(url.lastIndexOf("/") + 1);
