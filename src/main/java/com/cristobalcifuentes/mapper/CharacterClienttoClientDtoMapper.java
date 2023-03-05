@@ -7,7 +7,7 @@ import com.cristobalcifuentes.models.dtos.CharacterDto;
 import com.cristobalcifuentes.models.dtos.LocationDto;
 
 @Component
-public class CharacterClienttoClientDtoMapper {
+public class CharacterClientToClientDtoMapper {
 
 	public CharacterDto mappingTo(CharacterClient characterClient) {
 		return CharacterDto.builder()

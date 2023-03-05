@@ -1,8 +1,10 @@
 package com.cristobalcifuentes;
 
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
@@ -14,7 +16,10 @@ public class PruebaTecnicaMobdevApplication {
 	
 	@Bean
     public RestTemplate restTemplate() {
-        return new RestTemplate();
+		
+		HttpComponentsClientHttpRequestFactory clientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(
+	            HttpClientBuilder.create().build());
+        return new RestTemplate(clientHttpRequestFactory);
     }
 
 }
